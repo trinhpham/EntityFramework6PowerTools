@@ -1,10 +1,22 @@
+
 # Entity Framework 6 Power Tools Community Edition
 
 This is a fork of the "official" EF 6 repository, which hosts the Visual Studio 2015 and 2017 version of EF Power Tools Beta. 
 
 # What are the Power Tools?
 
-Preview of useful design-time DbContext features, added to the Visual Studio Solution Explorer context menu. When right-clicking on a file containing a derived DbContext class, the following context menu functions are supported: 1) View Entity Data Model (Read-only) 2) View Entity Data Model XML 3) View Entity Data Model DDL SQL 4) Generate Views When right-clicking on an Entity Data Model .edmx  file, the following context menu function is supported: 1) Generate Views.
+Preview of useful design-time DbContext features, added to the Visual Studio Solution Explorer context menu. 
+
+When right-clicking on a file containing a derived DbContext class, the following context menu functions are available: 
+1) View Entity Data Model (Read-only)
+2) View Entity Data Model XML 
+3) View Entity Data Model DDL SQL 
+4) Generate Views 
+
+When right-clicking on an Entity Data Model .edmx  file, the following context menu function is available: 
+1) Generate Views.
+
+If you are looking for Reverse Engineeering Tooling, use the [EF Reverse POCO Generator Template](https://marketplace.visualstudio.com/items?itemName=SimonHughes.EntityFrameworkReversePOCOGenerator)
 
 # Downloads/builds
 
