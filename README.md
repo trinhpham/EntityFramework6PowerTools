@@ -10,7 +10,8 @@ Preview of useful design-time DbContext features, added to the Visual Studio Sol
 
 **Release**
 
-Coming soon to the Visual Studio MarketPlace!
+The Power Tools will remain in "beta" status, but I hope to be able to publish a build to the Visual Studio MarketPlace, so it will be easily available via Tools - Extensions and Updates in Visual Studio.
+
 
 **Daily build**
 
