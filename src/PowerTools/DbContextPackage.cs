@@ -58,7 +58,8 @@ namespace Microsoft.DbContextPackage
         {
             await base.InitializeAsync(cancellationToken, progress);
 
-            _dte2 = GetServiceAsync(typeof(DTE)) as DTE2;
+			//Must wait the service object
+            _dte2 = await GetServiceAsync(typeof(DTE)) as DTE2;
 
             if (_dte2 == null)
             {
@@ -345,6 +346,16 @@ namespace Microsoft.DbContextPackage
                             SetDataDirectory(startUpProject);
 
                             var constructor = contextInfoType.GetConstructor(new[] { typeof(Type), typeof(Configuration) });
+
+							//Temporary fix to workaround issue: "No connection string named 'DBContext' could be found in the application config file."
+							//Add the parsed connection strings to ConfigurationManager
+                            typeof(ConfigurationElementCollection)
+                                .GetField("bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic)
+                                .SetValue(ConfigurationManager.ConnectionStrings, false);
+                            foreach (var cs in userConfig.ConnectionStrings.ConnectionStrings)
+                            {
+                                ConfigurationManager.ConnectionStrings.Add((ConnectionStringSettings)cs);
+                            }
 
                             if (constructor != null)
                             {
